@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>img/aim.png</file>
-        <file>img/icon.png</file>
-    </qresource>
-</RCC>
