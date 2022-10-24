@@ -7,12 +7,12 @@
 #include <QTimer>
 #include <QMouseEvent>
 #include <QEvent>
-
 #include "Windows.h"//这是引入Windows操作系统的API
 #include "WinUser.h"
 #include <QDesktopWidget>
 #include <QApplication>
 #include <QPainter>
+#include <qglobalshortcut.h>
 
 int clickpoint_x;
 int clickpoint_y;
@@ -135,6 +135,21 @@ MainWindow::MainWindow(QWidget *parent)
         }
     });
 
+    QGlobalShortcut  *stopShortcut = new QGlobalShortcut (this);
+    QGlobalShortcut  *startShortcut = new QGlobalShortcut (this);
+
+    stopShortcut->setKey(QKeySequence(Qt::Key_F9));
+    connect(stopShortcut,&QGlobalShortcut::activated,[=]()
+    {
+        emit stop_click();
+    });
+
+    startShortcut->setKey(QKeySequence(Qt::Key_F10));
+    connect(startShortcut,&QGlobalShortcut::activated,[=]()
+    {
+        emit start_click();
+    });
+
     connect(ui->spinBox_timer,&QSpinBox::setValue,[=]{
         ui->bt_timer->setChecked(true);
     });
@@ -149,17 +164,17 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-void MainWindow::keyPressEvent(QKeyEvent *e)
-{
-    if(e->key()==Qt::Key_F9)
-    {
-        emit stop_click();
-    }
-    else if(e->key()==Qt::Key_F10)
-    {
-        emit start_click();
-    }
-}
+//void MainWindow::keyPressEvent(QKeyEvent *e)
+//{
+//    if(e->key()==Qt::Key_F9)
+//    {
+//        emit stop_click();
+//    }
+//    else if(e->key()==Qt::Key_F10)
+//    {
+//        emit start_click();
+//    }
+//}
 
 void MainWindow::time_out()
 {

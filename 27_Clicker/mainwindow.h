@@ -30,7 +30,7 @@ private:
     QTimer *time_to_clock;
     QLabel *label_time;
 
-    void keyPressEvent(QKeyEvent *e);
+//    void keyPressEvent(QKeyEvent *e);
 
     Ui::MainWindow *ui;
 
