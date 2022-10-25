@@ -147,32 +147,6 @@
       <string>min</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>100</y>
-       <width>84</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>点击点透明度：</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox_trans">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>97</y>
-       <width>48</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>100</number>
-     </property>
-    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
